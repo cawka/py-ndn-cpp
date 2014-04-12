@@ -1,7 +1,7 @@
 # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
-VERSION = '0.1.0'
-APPNAME = "py-openndn"
+VERSION = '0.0.0'
+APPNAME = "py-ndn-cpp-dev"
 
 from waflib import Logs
 
@@ -23,9 +23,8 @@ def configure(conf):
     conf.check_boost(lib="python")
 
 def build (bld):
-    bld.shlib (features = "pyext",
-               target = "openndn",
-               source = bld.path.ant_glob(["bindings/**/*.cpp"]),
-               use = "NDN_CPP BOOST",
-               install_path='${PYTHONARCHDIR}'
-               )
+    bld.shlib(features = "pyext",
+              target = "ndn",
+              source = bld.path.ant_glob(["bindings/**/*.cpp"]),
+              use = "NDN_CPP BOOST",
+              install_path='${PYTHONARCHDIR}')
